@@ -6,7 +6,14 @@
 */
 
 var isValidTree = function (tree) {
-  // TODO: Implement
+  var is_valid = true;
+  if (tree.left && tree.left.value) {
+    is_valid = is_valid && (tree.value >= tree.left.value) && isValidTree(tree.left);
+  }
+  if (tree.right && tree.right.value) {
+    is_valid = is_valid && (tree.value <= tree.right.value) && isValidTree(tree.right);
+  }
+  return is_valid;
 };
 
 
